@@ -1,0 +1,16 @@
+4.  
+- Khi ứng dụng đang chạy và người dùng nhấn phím back, các phương thức được gọi theo thứ tự như sau: 
+	onPasue -> onStop -> onDestroy
+- Khi người dùng mở lại ứng dụng, các phương thức được gọi thô thứ tự như sau:
+	onCreate -> onStart -> onResume
+
+5.
+- Khi ứng dụng đang chạy và người dùng nhấn phím home, các phương thức được gọi theo thứ tự như sau: 
+	onPause -> onStop
+- Khi người dùng mở lại ứng dụng, các phương thức được gọi thô thứ tự như sau:
+	onRestart -> onStart -> onResume
+
+6. 
+- Nếu cần lưu thông tin để khôi phục lại trạng thái hiển thị của ứng dụng khi chạy lại ứng dụng thì cần phải thực hiện trong phương thức:
+	 onSaveInstanceState()
+- Vì sau khi ứng dụng bị tạm dừng do một ứng dụng  khác che, khi nhấn phím home, … chương trình sẽ gọi đến phương thức: onPause -> onSaveInstanceState -> onStop. Tại phương thức onSaveInstanceState, chúng ta có thể lưu lại các giá trị cần lưu bằng bundle outState, sau khi ứng dụng được khởi động lại (người dùng mở lại ứng dụng, người dùng quay lại ứng dụng) chúng ra sẽ lấy các giá trị đã lưu bằng phương thức onRestoreInstanceState() dùng bundle savedInstanceState và lấy các giá trị đã lưu ra.
